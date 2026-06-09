@@ -31,3 +31,13 @@ Sistem dibangun secara kolaboratif dengan membagi arsitektur aplikasi menjadi 5 
     * **`pbo_dbshowroom.sql`**: Menggunakan teknik *Class Table Inheritance* pada MySQL. Tabel utama `tb_kendaraan` menyimpan atribut umum, sedangkan tabel anak (`tb_mobil_konvensional`, `tb_mobil_hybrid`, `tb_mobil_listrik`, `tb_motor_besar`) terikat melalui hubungan relasional `FOREIGN KEY ... ON DELETE CASCADE`. Hal ini menjamin jika data kendaraan dihapus di tabel induk, detail spesifik di tabel anak otomatis ikut terhapus secara bersih.
     * **`config/Database.php`**: Mengimplementasikan koneksi menggunakan driver **PDO (PHP Data Objects)**. Koneksi diletakkan di dalam fungsi magis `__construct()` sehingga setiap kali objek `Database` diinstansiasi, jabat tangan (*handshake*) dengan server MySQL langsung berjalan secara otomatis dengan atribut `PDO::ERRMODE_EXCEPTION` untuk penanganan error (*error handling*) yang aman.
     * **`test_koneksi.php`**: Berfungsi sebagai modul uji cepat (*sanity check*) mandiri. Jika koneksi berhasil, akan merender komponen visual hijau tanda sistem siap digunakan.
+
+### Job 2: Software Architect & Core Abstraction
+**Tanggung Jawab Utama:** Perancang arsitektur awal sistem, serta cetak biru (*blueprint*) utama dari pilar enkapsulasi dan abstraksi objek.
+* **File yang Dikerjakan:**
+    * `models/Kendaraan.php` (Master Abstract Class Induk)
+* **Penjelasan Penting & Logika Kode:**
+    * **Struktur Folder**: Memisahkan komponen data (Models), pemrosesan logika data (Controllers), dan konfigurasi infrastruktur (Config) agar memenuhi prinsip kebersihan kode (*clean code architecture*).
+    * **`models/Kendaraan.php`**: Kelas ini dideklarasikan sebagai `abstract class`, yang berarti kelas induk ini bersifat konseptual dan tidak dapat diinstansiasi langsung menggunakan kata kunci `new`. Properti di dalamnya (seperti `brand`, `model`, `hargaDasar`, dll) dibungkus menggunakan *Access Modifier* `protected` agar aman dari akses luar langsung (**Encapsulation**), namun tetap bisa diwariskan ke kelas anak. Kelas ini menetapkan dua standar metode abstrak wajib (*Contractual Methods*):
+        * `abstract public function hitungPajakTahunan();`
+        * `abstract public function tampilkanSpesifikasi();`
