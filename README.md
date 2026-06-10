@@ -41,3 +41,19 @@ Sistem dibangun secara kolaboratif dengan membagi arsitektur aplikasi menjadi 5 
     * **`models/Kendaraan.php`**: Kelas ini dideklarasikan sebagai `abstract class`, yang berarti kelas induk ini bersifat konseptual dan tidak dapat diinstansiasi langsung menggunakan kata kunci `new`. Properti di dalamnya (seperti `brand`, `model`, `hargaDasar`, dll) dibungkus menggunakan *Access Modifier* `protected` agar aman dari akses luar langsung (**Encapsulation**), namun tetap bisa diwariskan ke kelas anak. Kelas ini menetapkan dua standar metode abstrak wajib (*Contractual Methods*):
         * `abstract public function hitungPajakTahunan();`
         * `abstract public function tampilkanSpesifikasi();`
+
+### Job 3: Subclass Developer & Business Logic Specialist
+**Tanggung Jawab Utama:** Pengenang logika bisnis konkret pada tingkat operasional unit kendaraan yang bertugas mengimplementasikan pewarisan sifat (*Inheritance*) dan rumus perhitungan spesifik (*Method Overriding*).
+* **File yang Dikerjakan:**
+    * `models/MobilKonvensional.php` (Unit Internal Combustion Engine / ICE)
+    * `models/MobilHybrid.php` (Unit Kombinasi BBM-Baterai)
+    * `models/MobilListrik.php` (Unit Battery Electric Vehicle / BEV)
+    * `models/MotorBesar.php` (Unit Roda Dua Kapasitas Besar)
+* **Penjelasan Penting & Logika Kode:**
+    * Seluruh sub-class di atas wajib mengimplementasikan keyword `extends Kendaraan` untuk mewarisi sifat induknya. Konstruktor anak memanfaatkan `parent::__construct()` untuk mengirim data dasar ke kelas induk.
+    * Menerapkan **Polymorphism** dengan merombak isi metode abstrak sesuai regulasi fiskal kendaraan:
+        * **`MobilKonvensional.php`**: Memiliki atribut unik kapasitas mesin (cc) dan jenis bensin. Rumus pajak tahunan: `(2% * Harga Dasar) + (Kapasitas Mesin * 500)`.
+        * **`MobilHybrid.php`**: Memiliki atribut campuran (cc mesin dan kWh baterai). Rumus pajak tahunan: `(1% * Harga Dasar) + (Kapasitas Mesin * 250)`.
+        * **`MobilListrik.php`**: Memiliki atribut unik kWh baterai. Berkat insentif emisi nol (zero emission), rumus pajaknya sangat murah, yaitu hanya `0.5% * Harga Dasar`.
+        * **`MotorBesar.php`**: Memiliki atribut tipe rantai dan mode berkendara. Rumus pajak tahunan: `1.5% * Harga Dasar`.
+
