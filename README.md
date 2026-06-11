@@ -47,6 +47,8 @@ Sistem dibangun secara kolaboratif dengan membagi arsitektur aplikasi menjadi 5 
     - `abstract public function hitungPajakTahunan();`
     - `abstract public function tampilkanSpesifikasi();`
 
+    Tes
+
 ### Job 3: Subclass Developer & Business Logic Specialist
 
 **Tanggung Jawab Utama:** Pengenang logika bisnis konkret pada tingkat operasional unit kendaraan yang bertugas mengimplementasikan pewarisan sifat (_Inheritance_) dan rumus perhitungan spesifik (_Method Overriding_).
