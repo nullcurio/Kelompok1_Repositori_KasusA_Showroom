@@ -100,7 +100,4 @@ Aplikasi ini mengimplementasikan 4 pilar utama OOP secara ketat sesuai instruksi
 
 ![alt text](<UML/Class diagram.drawio.png>)
 
-
-
-
 ![alt text](<UML/use case.drawio.png>)
