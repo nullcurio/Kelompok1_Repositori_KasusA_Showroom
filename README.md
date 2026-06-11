@@ -99,6 +99,5 @@ Sistem ini mengimplementasikan 4 pilar utama OOP sesuai instruksi penugasan:
 4. **Akses Aplikasi:**
    - Buka dashboard utama di alamat: `http://localhost/nama_folder_proyek/index.php`.
 
-![alt text](UML/Class diagram.drawio.png)
-
-![alt text](UML/use case.drawio.png)
+![alt text](<UML/Class diagram.drawio.png>)
+![alt text](<UML/use case.drawio.png>)
