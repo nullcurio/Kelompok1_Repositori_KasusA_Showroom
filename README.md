@@ -77,27 +77,28 @@ Sistem dibangun secara kolaboratif dengan membagi arsitektur aplikasi menjadi 5 
 
 ## Implementasi Pilar Utama OOP (Object-Oriented Programming)
 
-Aplikasi ini mengimplementasikan 4 pilar utama OOP secara ketat sesuai instruksi penugasan:
-1.  **Abstraction**: Penerapan `abstract class Kendaraan` beserta fungsi abstraknya sebagai cetak biru wajib tanpa bisa diinstansiasi langsung.
-2.  **Inheritance**: Pewarisan atribut dasar kendaraan dari kelas induk ke kelas `MobilKonvensional`, `MobilListrik`, `MobilHybrid`, dan `MotorBesar`.
-3.  **Encapsulation**: Penggunaan akses kontrol `private` dan `protected` serta pemanfaatan metode **Getter** (seperti `getBrand()`, `getModel()`, `getHargaDasar()`) untuk menjaga keamanan integritas data dari manipulasi luar.
-4.  **Polymorphism**: Teknik *Method Overriding* pada fungsi `hitungPajakTahunan()` dan `tampilkanSpesifikasi()` yang menghasilkan output berbeda secara cerdas tergantung pada tipe objek yang sedang diproses.
+Sistem ini mengimplementasikan 4 pilar utama OOP sesuai instruksi penugasan:
+
+1. **Abstraction**: Penerapan `abstract class Kendaraan` beserta fungsi abstraknya sebagai cetak biru wajib tanpa bisa diinstansiasi langsung.
+2. **Inheritance**: Pewarisan atribut dasar kendaraan dari kelas induk ke kelas `MobilKonvensional`, `MobilListrik`, `MobilHybrid`, dan `MotorBesar`.
+3. **Encapsulation**: Penggunaan akses kontrol `private` dan `protected` serta pemanfaatan metode **Getter** (seperti `getBrand()`, `getModel()`, `getHargaDasar()`) untuk menjaga keamanan integritas data dari manipulasi luar.
+4. **Polymorphism**: Teknik _Method Overriding_ pada fungsi `hitungPajakTahunan()` dan `tampilkanSpesifikasi()` yang menghasilkan output berbeda secara cerdas tergantung pada tipe objek yang sedang diproses.
 
 ---
 
 ## Panduan Menjalankan Aplikasi
 
-1.  **Persiapan Database:**
-    * Buka phpMyAdmin atau MySQL Client Anda.
-    * Buat database baru bernama `pbo_dbshowroom`.
-    * Impor file `sql/pbo_dbshowroom.sql` ke dalam database tersebut.
-2.  **Konfigurasi Koneksi:**
-    * Buka file `config/Database.php`, sesuaikan isi `$username` dan `$password` dengan konfigurasi server MySQL lokal Anda (default XAMPP: username `root` dan password dikosongkan `""`).
-3.  **Pengujian Jalur Data:**
-    * Buka browser dan akses `http://localhost/nama_folder_proyek/test_koneksi.php` untuk memastikan status koneksi sukses.
-4.  **Akses Aplikasi:**
-    * Buka dashboard utama di alamat: `http://localhost/nama_folder_proyek/index.php`.
+1. **Persiapan Database:**
+   - Buka phpMyAdmin atau MySQL Client Anda.
+   - Buat database baru bernama `pbo_dbshowroom`.
+   - Impor file `sql/pbo_dbshowroom.sql` ke dalam database tersebut.
+2. **Konfigurasi Koneksi:**
+   - Buka file `config/Database.php`, sesuaikan isi `$username` dan `$password` dengan konfigurasi server MySQL lokal Anda (default XAMPP: username `root` dan password dikosongkan `""`).
+3. **Pengujian Jalur Data:**
+   - Buka browser dan akses `http://localhost/nama_folder_proyek/test_koneksi.php` untuk memastikan status koneksi sukses.
+4. **Akses Aplikasi:**
+   - Buka dashboard utama di alamat: `http://localhost/nama_folder_proyek/index.php`.
 
-![alt text](<UML/Class diagram.drawio.png>)
+![alt text](UML/Class diagram.drawio.png)
 
-![alt text](<UML/use case.drawio.png>)
+![alt text](UML/use case.drawio.png)
