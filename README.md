@@ -75,7 +75,7 @@ Sistem dibangun secara kolaboratif dengan membagi arsitektur aplikasi menjadi 5 
   - **`controllers/ManajemenShowroom.php`**: Di dalam file ini terdapat properti `$listKendaraan` berupa array kosong. Fungsi `loadDataFromDatabase()` mengeksekusi query SQL `LEFT JOIN` dari tabel `tb_kendaraan` ke empat tabel anak sekaligus. Melalui pengecekan kolom unik (misalnya: jika kolom `bat_list` tidak kosong maka buat `new MobilListrik`), kontroler melakukan **Dynamic Object Casting**. Semua tipe objek yang berbeda ini dimasukkan ke dalam satu wadah array tunggal (_Polymorphic Collection_).
   - **`index.php`**: Bertindak sebagai antarmuka utama pengguna (menggunakan Tailwind CSS). File ini menangkap parameter URL untuk melakukan filtering data (seperti kategori atau pencarian nama kendaraan), lalu melakukan perulangan (_looping_) data untuk disajikan ke dalam tabel. Berkat mekanisme **Dynamic Binding**, file ini cukup memanggil `$item->hitungPajakTahunan()` dan `$item->tampilkanSpesifikasi()`, dan PHP secara otomatis akan mengeksekusi rumus yang tepat sesuai blueprint objek aslinya.
 
-## 🛠️ Implementasi Pilar Utama OOP (Object-Oriented Programming)
+## Implementasi Pilar Utama OOP (Object-Oriented Programming)
 
 Aplikasi ini mengimplementasikan 4 pilar utama OOP secara ketat sesuai instruksi penugasan:
 1.  **Abstraction**: Penerapan `abstract class Kendaraan` beserta fungsi abstraknya sebagai cetak biru wajib tanpa bisa diinstansiasi langsung.
@@ -85,7 +85,7 @@ Aplikasi ini mengimplementasikan 4 pilar utama OOP secara ketat sesuai instruksi
 
 ---
 
-## 🚀 Panduan Menjalankan Aplikasi
+## Panduan Menjalankan Aplikasi
 
 1.  **Persiapan Database:**
     * Buka phpMyAdmin atau MySQL Client Anda.
