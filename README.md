@@ -74,3 +74,30 @@ Sistem dibangun secara kolaboratif dengan membagi arsitektur aplikasi menjadi 5 
 - **Penjelasan Penting & Logika Kode:**
   - **`controllers/ManajemenShowroom.php`**: Di dalam file ini terdapat properti `$listKendaraan` berupa array kosong. Fungsi `loadDataFromDatabase()` mengeksekusi query SQL `LEFT JOIN` dari tabel `tb_kendaraan` ke empat tabel anak sekaligus. Melalui pengecekan kolom unik (misalnya: jika kolom `bat_list` tidak kosong maka buat `new MobilListrik`), kontroler melakukan **Dynamic Object Casting**. Semua tipe objek yang berbeda ini dimasukkan ke dalam satu wadah array tunggal (_Polymorphic Collection_).
   - **`index.php`**: Bertindak sebagai antarmuka utama pengguna (menggunakan Tailwind CSS). File ini menangkap parameter URL untuk melakukan filtering data (seperti kategori atau pencarian nama kendaraan), lalu melakukan perulangan (_looping_) data untuk disajikan ke dalam tabel. Berkat mekanisme **Dynamic Binding**, file ini cukup memanggil `$item->hitungPajakTahunan()` dan `$item->tampilkanSpesifikasi()`, dan PHP secara otomatis akan mengeksekusi rumus yang tepat sesuai blueprint objek aslinya.
+
+## 🛠️ Implementasi Pilar Utama OOP (Object-Oriented Programming)
+
+Aplikasi ini mengimplementasikan 4 pilar utama OOP secara ketat sesuai instruksi penugasan:
+1.  **Abstraction**: Penerapan `abstract class Kendaraan` beserta fungsi abstraknya sebagai cetak biru wajib tanpa bisa diinstansiasi langsung.
+2.  **Inheritance**: Pewarisan atribut dasar kendaraan dari kelas induk ke kelas `MobilKonvensional`, `MobilListrik`, `MobilHybrid`, dan `MotorBesar`.
+3.  **Encapsulation**: Penggunaan akses kontrol `private` dan `protected` serta pemanfaatan metode **Getter** (seperti `getBrand()`, `getModel()`, `getHargaDasar()`) untuk menjaga keamanan integritas data dari manipulasi luar.
+4.  **Polymorphism**: Teknik *Method Overriding* pada fungsi `hitungPajakTahunan()` dan `tampilkanSpesifikasi()` yang menghasilkan output berbeda secara cerdas tergantung pada tipe objek yang sedang diproses.
+
+---
+
+## 🚀 Panduan Menjalankan Aplikasi
+
+1.  **Persiapan Database:**
+    * Buka phpMyAdmin atau MySQL Client Anda.
+    * Buat database baru bernama `pbo_dbshowroom`.
+    * Impor file `sql/pbo_dbshowroom.sql` ke dalam database tersebut.
+2.  **Konfigurasi Koneksi:**
+    * Buka file `config/Database.php`, sesuaikan isi `$username` dan `$password` dengan konfigurasi server MySQL lokal Anda (default XAMPP: username `root` dan password dikosongkan `""`).
+3.  **Pengujian Jalur Data:**
+    * Buka browser dan akses `http://localhost/nama_folder_proyek/test_koneksi.php` untuk memastikan status koneksi sukses.
+4.  **Akses Aplikasi:**
+    * Buka dashboard utama di alamat: `http://localhost/nama_folder_proyek/index.php`.
+
+![alt text](<UML/Class diagram.drawio.png>)
+
+![alt text](<UML/use case.drawio.png>)
