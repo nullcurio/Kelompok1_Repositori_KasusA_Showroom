@@ -82,7 +82,7 @@ Sistem ini mengimplementasikan 4 pilar utama OOP sesuai instruksi penugasan:
 1. **Abstraction**: Penerapan `abstract class Kendaraan` beserta fungsi abstraknya sebagai cetak biru wajib tanpa bisa diinstansiasi langsung.
 2. **Inheritance**: Pewarisan atribut dasar kendaraan dari kelas induk ke kelas `MobilKonvensional`, `MobilListrik`, `MobilHybrid`, dan `MotorBesar`.
 3. **Encapsulation**: Penggunaan akses kontrol `private` dan `protected` serta pemanfaatan metode **Getter** (seperti `getBrand()`, `getModel()`, `getHargaDasar()`) untuk menjaga keamanan integritas data dari manipulasi luar.
-4. **Polymorphism**: Teknik _Method Overriding_ pada fungsi `hitungPajakTahunan()` dan `tampilkanSpesifikasi()` yang menghasilkan output berbeda secara cerdas tergantung pada tipe objek yang sedang diproses.
+4. **Polymorphism**: Teknik _Method Overriding_ pada fungsi `hitungPajakTahunan()` dan `tampilkanSpesifikasi()` yang menghasilkan output berbeda secara cerdas tergantung pada tipe objek yang sedang diproses,.
 
 ---
 
